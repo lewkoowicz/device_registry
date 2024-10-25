@@ -9,7 +9,7 @@ class Device < ApplicationRecord
   end
 
   def assigned_to?(user)
-    device_assignments.active.exists?(user: user)
+    current_assignment&.user == user
   end
 
   def ever_assigned_to?(user)
