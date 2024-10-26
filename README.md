@@ -54,6 +54,7 @@ The application supports multiple languages. Currently, English and Polish are a
 - `DELETE /api/v1/session`: Log out a user
 - `POST /api/v1/devices/assign`: Assign a device to the current user
 - `POST /api/v1/devices/unassign`: Unassign a device from the current user
+- `GET /api/v1/devices`: Fetch all devices assigned to the current user
 - `GET /api/v1/csrf`: Get a CSRF token for authentication
 
 A complete Postman collection with all available endpoints has been included in the repository. To use this collection:
@@ -79,3 +80,13 @@ Then you can run the test suite with:
    ```
    rspec spec
    ```
+## Production
+
+Application has a React frontend. Repository for it is available here: [frontend repository](https://github.com/lewkoowicz/device_registry_fe).
+
+Both api and the frontend are deployed as docker containers on aws ec2 instance. You can either create new user or sign in with existing credentials:
+
+- email: device@device
+- password: device
+
+The application is available under https://deviceregistry.pl
