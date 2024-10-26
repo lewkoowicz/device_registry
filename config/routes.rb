@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  scope '/api' do
-    post :assign, to: 'devices#assign'
-    post :unassign, to: 'devices#unassign'
+  namespace :api do
+    namespace :v1 do
+      get 'csrf', to: 'csrf#show'
+      resource :registration, only: [:create]
+      resource :session, only: [:create, :destroy]
+    end
   end
 end

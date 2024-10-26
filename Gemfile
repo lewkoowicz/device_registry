@@ -32,6 +32,8 @@ gem "bootsnap", require: false
 # gem irb now depends on psych, but version 5 will not bundle currently
 gem("psych", "~> 4")
 
+gem 'active_model_serializers', '~> 0.10.0'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
