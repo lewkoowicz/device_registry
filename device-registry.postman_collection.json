@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "1c85ea09-7d12-4dc7-8f9b-b8f6e15c17f0",
+		"name": "device-registry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23170301"
+	},
+	"item": [
+		{
+			"name": "csrf-token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/csrf",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"csrf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-up",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"email\": \"kajlew2@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/registration",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-in",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "sr_DiU8Z6mDu5cMAFZw_-yB3syjZ3Ha3fTmtpJyNpMTCL5JizmyDVF9seZCDmKbkSdnVUrSer6OAv8qFkZJWyA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"kajlew1@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/session",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-out",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "O1lgG_xMNmo1Ec-4Iq8saXU8H7w9NDsyMzOKt8tG7C6J3700FJ7c4r5CzWjgTxWfyl6Snl5I8pT7CK4MWIeIbg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/session",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign-device",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "nZFDP4M7Ig-nLZLMlc7-bFBPRuTGaPu8u67JFqwvF9NyTeXs5_x1hnkNXKcKBgxQfReUbeoQEsfkRy0CkFB93A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\r\n     \"serial_number\": \"ZXC123\"\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/devices/assign",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"devices",
+						"assign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unassign-device",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "sr_DiU8Z6mDu5cMAFZw_-yB3syjZ3Ha3fTmtpJyNpMTCL5JizmyDVF9seZCDmKbkSdnVUrSer6OAv8qFkZJWyA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\r\n     \"serial_number\": \"ZXC123\"\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/devices/unassign",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"devices",
+						"unassign"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

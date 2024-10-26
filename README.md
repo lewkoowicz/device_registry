@@ -1,24 +1,74 @@
-# README
+# Device Registry
 
-Your task is to implement the part of the application that helps track devices assigned to users within an organization.
+This is a Ruby on Rails application that helps track devices assigned to users within an organization. It provides endpoints for user registration, authentication, and device assignment/unassignment.
 
-For now, we have two ActiveRecord models: User and Device.
-User can have many devices; the device should be active only for one assigned user.
-There are 2 actions a User can take with the Device: assign the device to User or return the Device.
+## Requirements
 
-Here are the product requirements:
-- User can assign the device only to themself. 
-- User can't assign the device already assigned to another user.
-- Only the user who assigned the device can return it. 
-- If the user returned the device in the past, they can't ever re-assign the same device to themself.
+- Ruby 3.2.3
+- Rails 7.1.3
+- SQLite3
 
+## Setup
 
-TODO:
- - Clone this repo to your local machine - DON'T FORK IT.
- - Fix the config, so you can run the test suite properly.
- - Implement the code to make the tests pass for `AssignDeviceToUser` service.
- - Following the product requirements listed above, implement tests for returning the device and then implement the code to make them pass.
- - In case you are missing additional product requirements, use your best judgment. Have fun with it.
- - Refactor at will. Do you see something you don't like? Change it. It's your code. Remember to satisfy the outlined product requirements though.
- - Remember to document your progress using granular commits and meaningful commit messages.
- - Publish your code as a public repo using your Github account.
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd <project-directory>
+   ```
+
+2. Install dependencies:
+   ```
+   bundle install
+   ```
+
+3. Set up the database:
+   ```
+   rails db:create
+   rails db:migrate
+   ```
+
+4. Start the Rails server:
+   ```
+   rails server
+   ```
+
+The API will be available at `http://localhost:3000`.
+
+## Configuration
+
+### Database
+
+This project uses SQLite3 by default. If you want to use a different database, update the `config/database.yml` file accordingly.
+
+## API Endpoints
+
+- `POST /api/v1/registration`: Create a new user account
+- `POST /api/v1/session`: Log in a user
+- `DELETE /api/v1/session`: Log out a user
+- `POST /api/v1/devices/assign`: Assign a device to the current user
+- `POST /api/v1/devices/unassign`: Unassign a device from the current user
+- `GET /api/v1/csrf`: Get a CSRF token for authentication
+
+A complete Postman collection with all available endpoints has been included in the repository. To use this collection:
+
+1. Install [Postman](https://www.postman.com/downloads/) if you haven't already.
+2. Import the collection file from the repository into Postman.
+3. Set up BASE_URL environment variable with a http://localhost:3000/api/v1 value.
+
+## Authentication
+
+This API uses session-based authentication. CSRF protection is enabled, and a CSRF token must be included in the headers of non-GET requests.
+
+## Testing
+
+RSpec is set up for testing. 
+
+First, prepare the test database:
+   ```
+   rake db:test:prepare
+   ```
+
+Then you can run the test suite with:
+   ```
+   rspec spec
+   ```
