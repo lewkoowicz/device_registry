@@ -40,6 +40,13 @@ The API will be available at `http://localhost:3000`.
 
 This project uses SQLite3 by default. If you want to use a different database, update the `config/database.yml` file accordingly.
 
+### Localization
+
+The application supports multiple languages. Currently, English and Polish are available. To change the language, set the Accept-Language header in your API requests. For example:
+
+- For English: Accept-Language: en
+- For Polish: Accept-Language: pl
+
 ## API Endpoints
 
 - `POST /api/v1/registration`: Create a new user account
