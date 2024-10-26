@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resource :registration, only: [:create]
       resource :session, only: [:create, :destroy]
 
-      resources :devices, only: [] do
+      resources :devices, only: [:index] do
         collection do
           post :assign
           post :unassign

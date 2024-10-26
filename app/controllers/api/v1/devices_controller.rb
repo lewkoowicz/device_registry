@@ -35,6 +35,11 @@ module Api
         render_error(I18n.t('errors.unknown_error'), :internal_server_error)
       end
 
+      def index
+        devices = current_user.active_devices
+        render json: devices, each_serializer: DeviceSerializer
+      end
+
       private
 
       def device_params
