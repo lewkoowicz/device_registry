@@ -215,6 +215,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "fetch-devices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "_QaHFiU9aBsnHt1zmAqanGipN87RvOXs0k0_VKHS21O414357yTDlNZvKAfQaXGrfxr06V75RS-D9JxtvsPong",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/devices",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"devices"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
