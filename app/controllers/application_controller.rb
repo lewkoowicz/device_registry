@@ -42,4 +42,8 @@ class ApplicationController < ActionController::Base
     @current_user = nil
     reset_session
   end
+
+  def verified_request?
+    super || valid_authenticity_token?(session, request.headers['X-CSRF-Token'])
+  end
 end

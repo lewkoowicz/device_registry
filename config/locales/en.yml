@@ -14,6 +14,7 @@ en:
     device_previously_assigned_to_you: "Device was previously assigned to you"
     only_assigned_user_can_return: "Only the assigned user can return a device"
     device_not_assigned_to_user: "Device is not assigned to this user"
+    missing_csrf_token: "Missing csrf token"
   activerecord:
     errors:
       models:

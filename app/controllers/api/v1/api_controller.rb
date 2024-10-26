@@ -10,9 +10,11 @@ module Api
 
       def verify_csrf_token
         if request.headers['X-CSRF-Token'].present?
-          verify_authenticity_token
+          unless valid_authenticity_token?(session, request.headers['X-CSRF-Token'])
+            render_error(I18n.t('errors.invalid_csrf_token'), :unauthorized)
+          end
         else
-          render_error(I18n.t('errors.invalid_csrf_token'), :unauthorized)
+          render_error(I18n.t('errors.missing_csrf_token'), :unauthorized)
         end
       end
 
