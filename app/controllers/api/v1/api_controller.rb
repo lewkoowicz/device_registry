@@ -12,7 +12,7 @@ module Api
         if request.headers['X-CSRF-Token'].present?
           verify_authenticity_token
         else
-          render_error('Invalid CSRF token', :unauthorized)
+          render_error(I18n.t('errors.invalid_csrf_token'), :unauthorized)
         end
       end
 

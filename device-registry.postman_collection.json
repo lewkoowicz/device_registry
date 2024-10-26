@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1c85ea09-7d12-4dc7-8f9b-b8f6e15c17f0",
+		"_postman_id": "57580d51-0c31-4f6d-83cc-5ab0595cb55b",
 		"name": "device-registry",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23170301"
@@ -30,10 +30,21 @@
 					"type": "noauth"
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "Xrlpbbytua7JnFjmWp3WylOdO6l030KgqzZwSZRc2UfwTAU-_y2S-WWJwdl98ihU6Amg4FgZ9pSkpj9182HLeA",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pl",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"user\": {\r\n    \"email\": \"kajlew2@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"user\": {\r\n    \"email\": \"\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,13 +73,18 @@
 				"header": [
 					{
 						"key": "X-CSRF-TOKEN",
-						"value": "sr_DiU8Z6mDu5cMAFZw_-yB3syjZ3Ha3fTmtpJyNpMTCL5JizmyDVF9seZCDmKbkSdnVUrSer6OAv8qFkZJWyA",
+						"value": "tIThizSOcBPNRhbmJwKnX0Nqc-UUdbIA02co2Q-KOG4iB1QBo3Srs5I33zsQkXoYBr5ebOGZGPYYnl1mPEEFIQ",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pl",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"kajlew1@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
+					"raw": "{\r\n  \"email\": \"kajlew2@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,7 +113,12 @@
 				"header": [
 					{
 						"key": "X-CSRF-TOKEN",
-						"value": "O1lgG_xMNmo1Ec-4Iq8saXU8H7w9NDsyMzOKt8tG7C6J3700FJ7c4r5CzWjgTxWfyl6Snl5I8pT7CK4MWIeIbg",
+						"value": "tIThizSOcBPNRhbmJwKnX0Nqc-UUdbIA02co2Q-KOG4iB1QBo3Srs5I33zsQkXoYBr5ebOGZGPYYnl1mPEEFIQ",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pl",
 						"type": "text"
 					}
 				],
@@ -123,13 +144,18 @@
 				"header": [
 					{
 						"key": "X-CSRF-TOKEN",
-						"value": "nZFDP4M7Ig-nLZLMlc7-bFBPRuTGaPu8u67JFqwvF9NyTeXs5_x1hnkNXKcKBgxQfReUbeoQEsfkRy0CkFB93A",
+						"value": "tIThizSOcBPNRhbmJwKnX0Nqc-UUdbIA02co2Q-KOG4iB1QBo3Srs5I33zsQkXoYBr5ebOGZGPYYnl1mPEEFIQ",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pl",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "   {\r\n     \"serial_number\": \"ZXC123\"\r\n   }",
+					"raw": "   {\r\n     \"serial_number\": \"654321\"\r\n   }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -160,6 +186,11 @@
 					{
 						"key": "X-CSRF-TOKEN",
 						"value": "sr_DiU8Z6mDu5cMAFZw_-yB3syjZ3Ha3fTmtpJyNpMTCL5JizmyDVF9seZCDmKbkSdnVUrSer6OAv8qFkZJWyA",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pl",
 						"type": "text"
 					}
 				],

@@ -24,7 +24,7 @@ class AssignDeviceToUser
 
   def validate_assignment!
     unless @requesting_user.id == @new_device_owner_id
-      raise RegistrationError::Unauthorized, "Users can only assign devices to themselves"
+      raise RegistrationError::Unauthorized, I18n.t('errors.users_can_only_assign_to_themselves')
     end
 
     device = Device.find_by(serial_number: @serial_number)
@@ -32,14 +32,14 @@ class AssignDeviceToUser
 
     if device.current_assignment.present?
       if device.assigned_to?(@requesting_user)
-        raise AssigningError::AlreadyUsedOnUser, "Device is currently assigned to you"
+        raise AssigningError::AlreadyUsedOnUser, I18n.t('errors.device_currently_assigned_to_you')
       else
-        raise AssigningError::AlreadyUsedOnOtherUser, "Device is currently assigned to another user"
+        raise AssigningError::AlreadyUsedOnOtherUser, I18n.t('errors.device_currently_assigned_to_another')
       end
     end
 
     if DeviceAssignment.exists?(device: device, user: @requesting_user)
-      raise AssigningError::AlreadyUsedOnUser, "Device was previously assigned to you"
+      raise AssigningError::AlreadyUsedOnUser, I18n.t('errors.device_previously_assigned_to_you')
     end
   end
 end

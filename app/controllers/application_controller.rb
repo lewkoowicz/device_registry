@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_csrf_cookie
+  before_action :set_locale
 
   private
 
@@ -8,8 +9,16 @@ class ApplicationController < ActionController::Base
     cookies['CSRF-TOKEN'] = form_authenticity_token
   end
 
+  def set_locale
+    I18n.locale = extract_locale_from_accept_language_header
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE']&.scan(/^[a-z]{2}/)&.first || I18n.default_locale
+  end
+
   def authenticate_user!
-    render json: { error: 'Unauthorized' }, status: :unauthorized unless current_user
+    render json: { error: I18n.t('errors.unauthorized') }, status: :unauthorized unless current_user
   end
 
   def current_user

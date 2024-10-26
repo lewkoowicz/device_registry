@@ -1,0 +1,34 @@
+pl:
+  errors:
+    unauthorized: "Użytkownik nieupoważniony"
+    invalid_csrf_token: "Nieprawidłowy token CSRF"
+    device_not_found: "Nie znaleziono urządzenia"
+    unknown_error: "Nieznany błąd"
+    invalid_email_or_password: "Nieprawidłowy email lub hasło"
+    logged_out_successfully: "Wylogowano pomyślnie"
+    device_assigned_successfully: "Urządzenie przypisane pomyślnie"
+    device_unassigned_successfully: "Urządzenie zostało pomyślnie odpisane"
+    users_can_only_assign_to_themselves: "Użytkownicy mogą przypisywać urządzenia tylko sobie"
+    device_currently_assigned_to_you: "Urządzenie jest obecnie przypisane do Ciebie"
+    device_currently_assigned_to_another: "Urządzenie jest obecnie przypisane do innego użytkownika"
+    device_previously_assigned_to_you: "Urządzenie było wcześniej przypisane do Ciebie"
+    only_assigned_user_can_return: "Tylko przypisany użytkownik może zwrócić urządzenie"
+    device_not_assigned_to_user: "Urządzenie nie jest przypisane do tego użytkownika"
+  activerecord:
+    errors:
+      models:
+        device:
+          attributes:
+            serial_number:
+              blank: "Numer seryjny nie może być pusty"
+              taken: "Numer seryjny jest już zajęty"
+        device_assignment:
+          attributes:
+            status:
+              blank: "Status nie może być pusty"
+        user:
+          attributes:
+            email:
+              blank: "Email nie może być pusty"
+            password:
+              blank: "Hasło nie może być puste"

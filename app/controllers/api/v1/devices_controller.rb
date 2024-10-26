@@ -9,13 +9,13 @@ module Api
         )
 
         service.call
-        render json: { message: 'Device assigned successfully' }, status: :ok
+        render json: { message: I18n.t('errors.device_assigned_successfully') }, status: :ok
       rescue AssigningError::AlreadyUsedOnUser, AssigningError::AlreadyUsedOnOtherUser, RegistrationError::Unauthorized => e
         render_error(e.message, :unprocessable_entity)
       rescue ActiveRecord::RecordNotFound
-        render_error('Device not found', :not_found)
+        render_error(I18n.t('errors.device_not_found'), :not_found)
       rescue StandardError
-        render_error('Unknown error', :internal_server_error)
+        render_error(I18n.t('errors.unknown_error'), :internal_server_error)
       end
 
       def unassign
@@ -26,13 +26,13 @@ module Api
         )
 
         service.call
-        render json: { message: 'Device unassigned successfully' }, status: :ok
+        render json: { message: I18n.t('errors.device_unassigned_successfully') }, status: :ok
       rescue ReturnError::Unauthorized, ReturnError::NotAssigned => e
         render_error(e.message, :unprocessable_entity)
       rescue ActiveRecord::RecordNotFound
-        render_error('Device not found', :not_found)
+        render_error(I18n.t('errors.device_not_found'), :not_found)
       rescue StandardError
-        render_error('Unknown error', :internal_server_error)
+        render_error(I18n.t('errors.unknown_error'), :internal_server_error)
       end
 
       private

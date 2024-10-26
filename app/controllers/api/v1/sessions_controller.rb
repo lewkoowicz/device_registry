@@ -8,13 +8,13 @@ module Api
           login user
           render json: { user: UserSerializer.new(user) }
         else
-          render_error('Invalid email or password', :unauthorized)
+          render_error(I18n.t('errors.invalid_email_or_password'), :unauthorized)
         end
       end
 
       def destroy
         logout
-        render json: { message: 'Logged out successfully' }
+        render json: { message: I18n.t('errors.logged_out_successfully') }
       end
     end
   end

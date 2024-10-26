@@ -23,11 +23,11 @@ class ReturnDeviceFromUser
 
   def validate_return!
     unless @user.id == @from_user
-      raise ReturnError::Unauthorized, "Only the assigned user can return a device"
+      raise ReturnError::Unauthorized, I18n.t('errors.only_assigned_user_can_return')
     end
 
     unless device.assigned_to?(@user)
-      raise ReturnError::NotAssigned, "Device is not assigned to this user"
+      raise ReturnError::NotAssigned, I18n.t('errors.device_not_assigned_to_user')
     end
   end
 end
